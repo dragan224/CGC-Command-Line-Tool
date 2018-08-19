@@ -18,7 +18,7 @@ repositories {
 
 // Final jar file
 task buildJar(type: Jar) {
-	manifest {
+    manifest {
         attributes 'Main-Class': 'cli.Main'
     }
     baseName = 'cgccli'
@@ -28,22 +28,22 @@ task buildJar(type: Jar) {
 
 // Install into user's bin folder
 task install() {
-	doLast {
-		if (Os.isFamily(Os.FAMILY_UNIX)) { // OS_X or Linux
-	        exec {
-	        	commandLine "bash", "-c", "cat '${projectDir}/run.sh' > /usr/local/bin/cgccli && chmod +x /usr/local/bin/cgccli"
-	    	}
-	    	exec {
-	        	commandLine "bash", "-c", "cp '${projectDir}/build/libs/cgccli.jar' /usr/local/bin"
-	    	}
-	    } else if (Os.isFamily(Os.FAMILY_WINDOWS)) { // Windows - not tested
-	    	exec {
-	        	commandLine "copy", "%projectDir%\\build\\libs\\cgccli.jar", "%SYSTEMROO%"
-	    	}
-	    	exec {
-	        	commandLine "copy", "%projectDir%\\run.bat", "%SYSTEMROO%"
-	    	}
-	    }
+    doLast {
+        if (Os.isFamily(Os.FAMILY_UNIX)) { // OS_X or Linux
+            exec {
+                commandLine "bash", "-c", "cat '${projectDir}/run.sh' > /usr/local/bin/cgccli && chmod +x /usr/local/bin/cgccli"
+            }
+            exec {
+                commandLine "bash", "-c", "cp '${projectDir}/build/libs/cgccli.jar' /usr/local/bin"
+            }
+        } else if (Os.isFamily(Os.FAMILY_WINDOWS)) { // Windows - not tested
+            exec {
+                commandLine "copy", "%projectDir%\\build\\libs\\cgccli.jar", "%SYSTEMROO%"
+            }
+            exec {
+                commandLine "copy", "%projectDir%\\run.bat", "%SYSTEMROO%"
+            }
+        }
     }
 }
 
