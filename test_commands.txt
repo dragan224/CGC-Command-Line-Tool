@@ -1,0 +1,5 @@
+gradle build && echo "" && cgccli --token 659e81e0f42a4612ae1cf68fe3f45de7 projects list
+gradle build && echo "" && cgccli --token 659e81e0f42a4612ae1cf68fe3f45de7 files list --project dragan224/copy-of-simons-genome-diversity-project-sgdp
+gradle build && echo "" && cgccli --token 659e81e0f42a4612ae1cf68fe3f45de7 files stat --file 5b78d85be4b0f747efe091db
+gradle build && echo "" && cgccli --token 659e81e0f42a4612ae1cf68fe3f45de7 files update --file 5b78d85be4b0f747efe091db metadata.sample_id=test_sample_id metadata.gender=Male
+gradle build && echo "" && cgccli --token 659e81e0f42a4612ae1cf68fe3f45de7 files download --file 5b78d85be4b0f747efe091db --dest /tmp/foo.bar

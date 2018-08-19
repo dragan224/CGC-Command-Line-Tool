@@ -1,0 +1,1 @@
+java -jar %SYSTEMROOT%\cgccli.jar %*
